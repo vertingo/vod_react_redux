@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-const ListView = React.createClass({
+class ListView extends React.Component {
   render() {
     const {movies} = this.props;
     const moviesList = movies.map((m, i) => {
@@ -15,7 +15,7 @@ const ListView = React.createClass({
       </ul>
     )
   }
-})
+}
 
 function mapStateToProps(state) {
   return {

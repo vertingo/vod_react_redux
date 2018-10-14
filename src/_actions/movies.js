@@ -1,5 +1,12 @@
 import fetch from 'isomorphic-fetch';
 
+
+export const moviesActions = {
+  receive,
+  error,
+  getMovies
+};
+
 function receive(data) {
   return {
     type: 'RECEIVE_MOVIES',
@@ -15,9 +22,9 @@ function error(data) {
 }
 
 
-export function getMovies(s = "Batman") {
+function getMovies(s = "Batman") {
   return (dispatch) => {
-    return fetch(`http://www.omdbapi.com/?s=${s}&type=movie`)
+    return fetch(`http://www.omdbapi.com/?s=${s}&type=movie&apikey=63154a5b`)
       .then((response) => response.json())
       .then((data) => dispatch(receive(data)))
       .catch((err) => dispatch(error(err)))

@@ -1,12 +1,13 @@
 import React from 'react';
 import List from './List';
 import { connect } from 'react-redux';
-import { getMovies } from '../_actions/movies'
+import { moviesActions } from '../_actions'
 
-const MoviesView = React.createClass({
+class MoviesView extends React.Component {
   componentDidMount() {
     this.props.getMovies();
-  },
+  }
+
   render() {
     const { total } = this.props;
     return (
@@ -16,7 +17,7 @@ const MoviesView = React.createClass({
       </div>
     )
   }
-})
+}
 
 function mapStateToProps(state) {
   return {
